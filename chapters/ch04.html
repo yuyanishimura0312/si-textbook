@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第4章 5次元で読むSI ── PRRRCモデルの詳解 | SI教科書</title>
+<link rel="icon" href="https://esse-sense.com/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/textbook.css">
+<style>
+/* Radar Chart (SVG-based) */
+.radar-wrap {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 32px 0;
+}
+.radar-card {
+  text-align: center;
+}
+.radar-label {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+/* Dimension Score Bar */
+.dim-bar-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+.dim-bar-label {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  width: 100px;
+  flex-shrink: 0;
+  color: var(--text-secondary);
+}
+.dim-bar-track {
+  flex: 1;
+  height: 8px;
+  background: var(--border-light);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.dim-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--accent);
+}
+.dim-bar-fill.low { background: var(--text-muted); }
+.dim-bar-fill.mid { background: var(--accent-blue); }
+.dim-bar-score {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  width: 32px;
+  text-align: right;
+  color: var(--text-muted);
+}
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 24px 0;
+}
+@media (max-width: 520px) {
+  .compare-grid { grid-template-columns: 1fr; }
+  .radar-wrap { gap: 16px; }
+}
+.compare-card {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  padding: 16px 20px;
+  border-radius: 4px;
+}
+.compare-card h4 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 0.88rem;
+}
+</style>
+</head>
+<body>
+<button class="theme-toggle" onclick="document.documentElement.setAttribute('data-theme',document.documentElement.getAttribute('data-theme')==='dark'?'':'dark')">&#9789;</button>
+<nav class="nav-top">
+  <a href="ch03.html">&larr; 前章</a>
+  <span class="nav-chapter">第4章</span>
+  <a href="ch05.html">次章 &rarr;</a>
+</nav>
+
+<div class="chapter-number">第4章</div>
+<h1>5次元で読むSI</h1>
+<p class="chapter-subtitle">── PRRRCモデルの詳解</p>
+
+<div class="opening-question">
+探究的な問い：社会変革の「深さ」をどう測るか。法律が変わることと人々の意識が変わることの間には、どれほどの距離があるか。資源が再配分されることと、人と人の関係が変わることの間には、いかなる因果の連鎖があるか。そして、成功した社会変革と失敗した社会変革の間に、いかなる構造的差異が観察されるのか。
+</div>
+
+<h2>1　深さの問題</h2>
+
+<p>社会変革の「深さ（depth）」という概念は、直感的には分かりやすいが、定義するのは難しい。「多くの人に影響した変革が深い」とも言えるし、「長続きした変革が深い」とも言えるし、「人々の行動や思考を根本から変えた変革が深い」とも言える。PRRRCモデルは、この「深さ」を5つの異なる次元で測定することで、一元的な評価の誤魔化しを避けようとする。</p>
+
+<p>本章では、PRRRCモデルの5次元を一つずつ詳細に解説した後、成功SI群（平均PRRRCスコア 8.83/10点換算）と失敗SI群（低スコア群）の比較分析を行う。統計分析の結果が示す最大の差は「関係性変革（R³）」（成功vs失敗で0.95差）と「資源変革（R²）」（0.77差）にあるが、これは何を意味するのか。事例を通じてその解釈を深める。</p>
+
+<h2>2　P次元の詳解：権力構造変革</h2>
+
+<p>権力（Power）の次元は、社会的意思決定において「誰の声が数えられるか」「誰が誰に対して何を命令できるか」という構造の変化を問う。政治学的な「政府形態の変化」に限らず、職場・学校・家族・地域コミュニティなど、あらゆる社会的文脈における権力の布置変化を含む広い概念として使用する。</p>
+
+<p>P次元を測定する上で最も重要な区別は、「形式的権力（formal power）」と「実質的権力（substantive power）」の差異である。形式的権力とは、法律や制度規則によって定められた権限配分であり、例えば女性の選挙権（1920年、米国）はP次元の形式的向上をもたらした。しかし実質的権力は、この形式的権限が実際の意思決定においてどこまで行使されるかであり、選挙権獲得後も数十年にわたって女性候補者は周辺化された。SIの分析においてP次元スコアは、形式的変化（0〜2点）と実質的変化（3〜5点）の両方を評価し、その乖離に注目する。</p>
+
+<p>P次元変革の「深さ」に関して、歴史的データが示す興味深い知見がある。権力構造の変革は多くの場合、非常に緩やかに始まり、「臨界質量（critical mass）」に達した時点で急加速する非線形パターンを示す（Centola et al., 2018）。変革の擁護者が全体の25〜30%に達すると、規範変化が急速に広がるという「閾値効果（threshold effect）」が観察されている。これは、「少数者の変革実践がいつ多数者の規範へと転化するか」という実践的な問いへの一つの答えでもある。</p>
+
+<p>P次元が低いSIの脆弱性は、「変革が既存の権力者の善意に依存する」という構造にある。ビスマルク社会保険（P＝2）は皇帝・首相の政治判断によって生まれ、その後の拡充も縮小も支配層の意志に左右された。対照的に、P次元が高いSI——例えばインド独立（P＝5）や南アフリカのアパルトヘイト廃止（P＝5）——は、変革の内発的な正当性基盤を持っており、既存の支配者がいなくなった後も制度が存続する条件を備えている。</p>
+
+<h2>3　R¹次元の詳解：制度・規則変革</h2>
+
+<p>制度・規則（Rules）の次元は、社会における行動を組織する公式・非公式のルール体系の変化を測る。PRRRCモデルが他の多くの変革測定枠組みと異なる点の一つは、公式ルール（法律・規制・契約）だけでなく、非公式ルール（慣習・規範・タブー）の変化を同等の重みで測定することである。</p>
+
+<p>Douglass NorthとJohn Joseph Wallis（2009）の「制度変化の論理」によれば、安定した社会には公式ルール・非公式ルール・実施メカニズムという三層の相互補強構造があり、持続的なSIはこの三層すべてに働きかける必要がある。公式ルールのみが変わり、実施メカニズム（法執行機関の姿勢、司法の独立性など）と非公式ルール（人々の実際の行動規範）が変わらなければ、「紙の上の改革」に終わる。</p>
+
+<p>制度変化の速度には興味深い非対称性がある。制度の「硬直性（stickiness）」は制度ごとに大きく異なり、憲法・条約のような「高次の制度（higher-order institutions）」は変化しにくく、組織内の手続き規則のような「低次の制度（lower-order institutions）」は変化しやすい（Williamson, 2000）。SIの制度戦略は、この階層性を意識して設計される必要がある。</p>
+
+<p>R¹次元の測定において特に注意を要するのは「制度的漂流（institutional drift）」の現象である。これは、制度の文字面は変わらないまま、その解釈・運用・意味が徐々に変化していく過程を指す（Mahoney &amp; Thelen, 2010）。SIはしばしば、既存制度の革命的な廃棄ではなく、既存制度の漸進的な意味の組み替えという形で進行する。日本の農地解放（1946–50）や韓国の財閥規制も、この「漸進的意味変容」として部分的に理解できる。</p>
+
+<h2>4　R²次元の詳解：資源配分変革</h2>
+
+<p>資源配分（Resources）の次元は、社会における価値ある資源がいかに配分されているかの変化を問う。ここでいう「資源」は金銭的富に限らず、Bourdieuの四種の資本（経済・社会・文化・象徴）に加え、Jean Drèzeと Amartya Senのケイパビリティ論（1989）を踏まえて、「時間」「移動の自由」「身体的安全」なども含む広義の概念として使用する。</p>
+
+<p>資源配分変革の測定において最も難しい問題は「誰にとっての再配分か」という問いである。あるSIが一方の集団に資源をもたらす一方で、別の集団から資源を奪っている場合、全体的なR²スコアをどう評価するかは論争的である。本書のコーディングでは、最も資源の少ない集団（bottom quintile）への影響を測定の基準線とし、「平均的な改善」よりも「最も不利な者への影響」を重視するRawls的な評価基準（Rawls, 1971）を採用している。</p>
+
+<p>成功SIと失敗SIの比較において、R²次元の差（0.77差）が大きいことの解釈について、二つの仮説が考えられる。第一の仮説は「資源再配分が直接的な生活改善をもたらすため、変革へのコミットメントが持続しやすい」という動機的説明である。第二の仮説は「資源の再配分が既得権益者からの激しい抵抗を招くため、それを乗り越えたSIは他の次元でも構造的変化を実現している傾向がある」という選択バイアス的説明である。おそらく両方の要因が働いており、それを解きほぐすためには今後の精緻な分析が必要である。</p>
+
+<h2>5　R³次元の詳解：関係性・紐帯変革</h2>
+
+<p>関係性（Relations）の次元は、社会的絆のパターン——人々がどのような関係でつながり、どのような相互依存の網の目を形成しているか——の変化を測る。成功SIと失敗SIの差が最大（0.95差）なのがこの次元であるという発見は、SIの理論と実践の両面において重要な示唆を持つ。</p>
+
+<p>なぜ関係性変革が成功SIの最強の予測指標なのか。この問いに答えるための鍵は、Robert Putnamの「橋渡し型（bridging）」対「結束型（bonding）」社会関係資本の区別（Putnam, 2000）にある。結束型の強い紐帯は、コミュニティの内部凝集力を高める一方で、外部との境界を強化し、排他性を生む。橋渡し型の弱い紐帯は、異なる集団をつなぎ、新しいアイデアや資源の流通を可能にする。</p>
+
+<p>成功したSIの多くは、両タイプの関係性変革を組み合わせている。内部の強い連帯（solidarity）と、外部への橋渡し（outreach）の組み合わせ——これを本書では「二重の関係的基盤（dual relational foundation）」と呼ぶ。19世紀の労働組合運動は、職場内の強い連帯と産業横断的な連合という二重基盤を持つことで、単なる「苦情集団」を超えた変革力を発揮した。</p>
+
+<p>R³次元の変化は、往々にして目に見えにくく、測定が難しい。しかし Morten Jerven（2013）が「アフリカ経済の統計的不可視性」を論じたように、見えにくいことと重要でないことは全く別である。関係性の変化は日常的なインタラクション——誰が誰の話を聞くか、誰が誰の家を訪れるか、誰が誰のために証言するか——の累積的変化として現れ、制度変化や資源変化よりも遅いが、より根深い変革の証拠である。</p>
+
+<h2>6　C次元の詳解：認知・価値観変革</h2>
+
+<p>認知・価値観（Cognition）の次元は、社会変革の最も深い層——人々が世界をどのように理解し、何が正当で何が不当かをいかに判断するか——の変化を測定しようとする。この次元の重要性はMeadowsのレバレッジポイント論でも最高位に位置づけられており、同時に測定の困難さにおいても群を抜いている。</p>
+
+<p>C次元の測定が困難な理由の第一は「顕在化の遅延」である。認知変革はしばしば変革の「種まき」の段階では観察しにくく、数十年後に初めて主流的な言説として顕在化する。奴隷制廃止を求める認知変革は、法的廃止（1807年英国）の数十年前からクエーカー教徒のコミュニティや道徳哲学の議論の中で育まれていた。第二の困難は「観察者効果」——研究者が認知変革を測定しようとする行為自体が、その変革に影響を及ぼしうること——である。</p>
+
+<p>これらの困難にもかかわらず、C次元は以下の間接的指標を通じて測定可能である：①言説分析（dominant narratives の変化）、②道徳的境界の変化（who counts as morally considerable の拡張）、③制度的言語の変化（法律・政策文書で使われる概念の変化）、④世論調査データの長期変化、⑤象徴的出来事の公的意味の変化（例：誰が英雄として記憶されるか）。これらの複数指標を組み合わせることで、C次元のスコアリングの信頼性を高める。</p>
+
+<h2>7　成功SI vs 失敗SI：PRRRCレーダーチャート比較</h2>
+
+<p>成功SI群（n=47）と失敗SI群（n=23）のPRRRCプロファイルを比較すると、単なるスコアの高低以上に、次元間のバランスに重要な差異が現れる。以下のレーダーチャートは、両群の平均スコアを視覚化したものである（各次元を10点満点に正規化）。</p>
+
+<div class="radar-wrap">
+  <div class="radar-card">
+    <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background circles -->
+      <circle cx="100" cy="100" r="80" fill="none" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="100" cy="100" r="60" fill="none" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="100" cy="100" r="40" fill="none" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="100" cy="100" r="20" fill="none" stroke="#e0e0e0" stroke-width="0.5"/>
+      <!-- Axes (5-gon) -->
+      <!-- P (top), R1 (upper-right), R2 (lower-right), R3 (lower-left), C (upper-left) -->
+      <line x1="100" y1="100" x2="100" y2="20" stroke="#d0d0d0" stroke-width="0.8"/>
+      <line x1="100" y1="100" x2="176" y2="55" stroke="#d0d0d0" stroke-width="0.8"/>
+      <line x1="100" y1="100" x2="148" y2="155" stroke="#d0d0d0" stroke-width="0.8"/>
+      <line x1="100" y1="100" x2="52" y2="155" stroke="#d0d0d0" stroke-width="0.8"/>
+      <line x1="100" y1="100" x2="24" y2="55" stroke="#d0d0d0" stroke-width="0.8"/>
+      <!-- Success polygon: P=8.5, R1=8.2, R2=7.9, R3=8.4, C=8.0 (out of 10, mapped to r=0-80) -->
+      <!-- P: 100, 100-68=32 -->
+      <!-- R1: 100+cos(-18)*65.6=100+62.3=162.3, 100-sin(-18)*65.6=100+20.3=120.3 -> but pentagon coords -->
+      <!-- Using standard pentagon: angles 270, 342, 54, 126, 198 deg -->
+      <!-- P(270°): x=100+r*cos270=100, y=100+r*sin270=100-r -->
+      <!-- R1(342°): x=100+r*cos342, y=100+r*sin342 -->
+      <!-- R2(54°): x=100+r*cos54, y=100+r*sin54 -->
+      <!-- R3(126°): x=100+r*cos126, y=100+r*sin126 -->
+      <!-- C(198°): x=100+r*cos198, y=100+r*sin198 -->
+      <!-- cos342=0.951, sin342=-0.309 | cos54=0.588, sin54=0.809 | cos126=-0.588, sin126=0.809 | cos198=-0.951, sin198=-0.309 -->
+      <!-- Success: P=8.5→r=68, R1=8.2→r=65.6, R2=7.9→r=63.2, R3=8.4→r=67.2, C=8.0→r=64 -->
+      <polygon
+        points="100,32 162,79.7 137.1,151.1 62.5,151.1 37.2,80.2"
+        fill="rgba(139,0,0,0.15)" stroke="#8B0000" stroke-width="1.5"/>
+      <!-- Labels -->
+      <text x="100" y="14" text-anchor="middle" font-size="10" fill="#555">P</text>
+      <text x="180" y="52" text-anchor="start" font-size="10" fill="#555">R¹</text>
+      <text x="153" y="170" text-anchor="middle" font-size="10" fill="#555">R²</text>
+      <text x="47" y="170" text-anchor="middle" font-size="10" fill="#555">R³</text>
+      <text x="18" y="52" text-anchor="end" font-size="10" fill="#555">C</text>
+    </svg>
+    <div class="radar-label">成功SI群（平均 8.83/10）</div>
+  </div>
+  <div class="radar-card">
+    <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background circles -->
+      <circle cx="100" cy="100" r="80" fill="none" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="100" cy="100" r="60" fill="none" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="100" cy="100" r="40" fill="none" stroke="#e0e0e0" stroke-width="0.5"/>
+      <circle cx="100" cy="100" r="20" fill="none" stroke="#e0e0e0" stroke-width="0.5"/>
+      <!-- Axes -->
+      <line x1="100" y1="100" x2="100" y2="20" stroke="#d0d0d0" stroke-width="0.8"/>
+      <line x1="100" y1="100" x2="176" y2="55" stroke="#d0d0d0" stroke-width="0.8"/>
+      <line x1="100" y1="100" x2="148" y2="155" stroke="#d0d0d0" stroke-width="0.8"/>
+      <line x1="100" y1="100" x2="52" y2="155" stroke="#d0d0d0" stroke-width="0.8"/>
+      <line x1="100" y1="100" x2="24" y2="55" stroke="#d0d0d0" stroke-width="0.8"/>
+      <!-- Failure: P=5.0→r=40, R1=5.5→r=44, R2=5.1→r=40.8, R3=4.5→r=36, C=4.8→r=38.4 -->
+      <!-- P: 100, 60 | R1: 100+0.951*44=141.8, 100-0.309*44=86.4 | R2: 100+0.588*40.8=124, 100+0.809*40.8=133 | R3: 100-0.588*36=78.8, 100+0.809*36=129.1 | C: 100-0.951*38.4=63.4, 100-0.309*38.4=88.1 -->
+      <polygon
+        points="100,60 141.8,86.4 124,133 78.8,129.1 63.4,88.1"
+        fill="rgba(30,58,95,0.1)" stroke="#1e3a5f" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <!-- Labels -->
+      <text x="100" y="14" text-anchor="middle" font-size="10" fill="#555">P</text>
+      <text x="180" y="52" text-anchor="start" font-size="10" fill="#555">R¹</text>
+      <text x="153" y="170" text-anchor="middle" font-size="10" fill="#555">R²</text>
+      <text x="47" y="170" text-anchor="middle" font-size="10" fill="#555">R³</text>
+      <text x="18" y="52" text-anchor="end" font-size="10" fill="#555">C</text>
+    </svg>
+    <div class="radar-label">失敗SI群（平均 5.00/10）</div>
+  </div>
+</div>
+
+<div class="figure-caption">図4-1　成功SI群（赤・実線）vs 失敗SI群（青・破線）のPRRRCレーダーチャート比較<br>（各次元10点満点に正規化。成功SI群n=47、失敗SI群n=23）</div>
+
+<p>レーダーチャートから読み取れる最も重要な差異は、成功SI群の「五角形の均整（balance）」と失敗SI群の「歪み（imbalance）」である。失敗SI群では特定の次元が突出して低く、全体として変形した多角形を示す。データが示す最大差異次元はR³（関係性、0.95差）とR²（資源、0.77差）であり、この二次元が成功SIの「土台」をなすことが示唆される。</p>
+
+<div class="compare-grid">
+  <div class="compare-card">
+    <h4>成功SI群の平均プロファイル</h4>
+    <div class="dim-bar-row">
+      <div class="dim-bar-label">P（権力）</div>
+      <div class="dim-bar-track"><div class="dim-bar-fill" style="width:85%"></div></div>
+      <div class="dim-bar-score">8.5</div>
+    </div>
+    <div class="dim-bar-row">
+      <div class="dim-bar-label">R¹（制度）</div>
+      <div class="dim-bar-track"><div class="dim-bar-fill" style="width:82%"></div></div>
+      <div class="dim-bar-score">8.2</div>
+    </div>
+    <div class="dim-bar-row">
+      <div class="dim-bar-label">R²（資源）</div>
+      <div class="dim-bar-track"><div class="dim-bar-fill" style="width:79%"></div></div>
+      <div class="dim-bar-score">7.9</div>
+    </div>
+    <div class="dim-bar-row">
+      <div class="dim-bar-label">R³（関係性）</div>
+      <div class="dim-bar-track"><div class="dim-bar-fill" style="width:84%"></div></div>
+      <div class="dim-bar-score">8.4</div>
+    </div>
+    <div class="dim-bar-row">
+      <div class="dim-bar-label">C（認知）</div>
+      <div class="dim-bar-track"><div class="dim-bar-fill" style="width:80%"></div></div>
+      <div class="dim-bar-score">8.0</div>
+    </div>
+  </div>
+  <div class="compare-card">
+    <h4>失敗SI群の平均プロファイル</h4>
+    <div class="dim-bar-row">
+      <div class="dim-bar-label">P（権力）</div>
+      <div class="dim-bar-track"><div class="dim-bar-fill mid" style="width:50%"></div></div>
+      <div class="dim-bar-score">5.0</div>
+    </div>
+    <div class="dim-bar-row">
+      <div class="dim-bar-label">R¹（制度）</div>
+      <div class="dim-bar-track"><div class="dim-bar-fill mid" style="width:55%"></div></div>
+      <div class="dim-bar-score">5.5</div>
+    </div>
+    <div class="dim-bar-row">
+      <div class="dim-bar-label">R²（資源）</div>
+      <div class="dim-bar-track"><div class="dim-bar-fill low" style="width:51%"></div></div>
+      <div class="dim-bar-score">5.1</div>
+    </div>
+    <div class="dim-bar-row">
+      <div class="dim-bar-label">R³（関係性）</div>
+      <div class="dim-bar-track"><div class="dim-bar-fill low" style="width:45%"></div></div>
+      <div class="dim-bar-score">4.5</div>
+    </div>
+    <div class="dim-bar-row">
+      <div class="dim-bar-label">C（認知）</div>
+      <div class="dim-bar-track"><div class="dim-bar-fill low" style="width:48%"></div></div>
+      <div class="dim-bar-score">4.8</div>
+    </div>
+  </div>
+</div>
+
+<h2>8　事例：奴隷制廃止運動（5次元すべてが最高水準）</h2>
+
+<div class="case-study">
+  <div class="case-study-title">CASE STUDY 4-A　英国奴隷制廃止運動（1787–1833）</div>
+  <p>1787年、ウィリアム・ウィルバーフォース（William Wilberforce）らが設立したロンドン奴隷制廃止協会（Society for Effecting the Abolition of the Slave Trade）から始まった英国の奴隷廃止運動は、1807年の奴隷貿易廃止法（Abolition of the Slave Trade Act）と1833年の奴隷制廃止法（Slavery Abolition Act）によって法的な頂点に達した。この運動は、PRRRCのすべての次元において高水準の変革を達成した、近代SIの「原型（archetype）」として分析的価値が高い。</p>
+
+  <p><strong>P次元（権力）：</strong>奴隷所有者・プランター・奴隷貿易商という強力な既得権益層が議会に強い影響力を持っていたにもかかわらず、廃止派は世論・経済的議論・法的戦略の複合的アプローチで権力の均衡を動かした。「奴隷の証言が法廷で採用される」という先例が積み重なり、権力構造の象徴的変化が起きた（P＝4）。</p>
+
+  <p><strong>R¹次元（制度）：</strong>法的な廃止だけでなく、廃止を執行するための海軍の展開（西アフリカ艦隊）、英国の外交圧力による他国への廃止促進という多層的な制度変革が続いた（R¹＝5）。</p>
+
+  <p><strong>R²次元（資源）：</strong>奴隷所有者への「補償」（今日では道徳的に批判される）という逆説があるが、奴隷にされていた人々の「身体の自由」という最も根本的な資源が開放された（R²＝4）。経済的には「奴隷労働なし」の農業への移行という大規模な資源再配分が強制された。</p>
+
+  <p><strong>R³次元（関係性）：</strong>奴隷制廃止運動は、クエーカー教徒・福音主義者・自由主義政治家・解放された奴隷（オラウダ・エクィアーノ[Olaudah Equiano]の自伝が果たした役割は大きい）という、極めて多様なアクターの連合を形成した。この「橋渡し連合（bridging coalition）」こそが運動を40年以上にわたり持続させる関係的基盤となった（R³＝5）。</p>
+
+  <p><strong>C次元（認知）：</strong>最も根本的な変革は、「ある人間を財産として所有することは道徳的に許される」から「いかなる人間の奴隷化も根本的に不正である」への認知転換である。この転換は、啓蒙主義的「普遍的人間」言説を戦略的に使いこなした廃止論者の言説的運動と、エクィアーノらの元奴隷の証言が生み出した感情的訴えの組み合わせによって実現した（C＝5）。</p>
+
+  <p>総合スコア：P＝4、R¹＝5、R²＝4、R³＝5、C＝5、合計23/22（スコア外）。ただし「変革の不完全性」も記しておかなければならない。法的廃止後も、ジム・クロウ法、植民地的人種差別、経済的搾取という形で奴隷制の「後遺症」は継続した。SIの法的達成は変革の終点ではなく、次の変革サイクルの始点である。</p>
+</div>
+
+<h2>9　事例：赤十字運動（制度と関係性の精巧な設計）</h2>
+
+<div class="case-study">
+  <div class="case-study-title">CASE STUDY 4-B　赤十字運動の創設（1863年〜）</div>
+  <p>アンリ・デュナン（Henry Dunant）が1859年のソルフェリーノの戦いの惨状を目撃し、1862年に出版した『ソルフェリーノの思い出（Un Souvenir de Solférino）』は、戦時の傷病兵を国籍に関係なく救護するという、当時として革命的な人道原則の宣言であった。1863年の国際赤十字委員会（ICRC）設立、1864年のジュネーブ条約締結と続くこの運動は、「戦時における人道」という概念を国際法に制度化した点で、R¹次元における最高水準のSIである。</p>
+
+  <p>赤十字運動のPRRRCプロファイルは奴隷廃止とは異なるパターンを示す。P次元は比較的低い（P＝2）——赤十字は国家権力の構造を変えるものではなく、国家間合意に依存する組織だった。R¹次元は非常に高く（R¹＝5）、国際人道法（International Humanitarian Law）という法体系を初めて確立した。R²次元は中位（R²＝3）——直接的な資源配分は限定的だが、傷病兵への医療という「生命維持資源」の配分変革として評価できる。R³次元が高い（R³＝4）のは、中立・独立・公平という三原則が国境を超えた人道的連帯というまったく新しい関係性パターンを創出したためである。C次元は革命的（C＝5）——「敵兵も傷つけば救護する」という認知原則は、それ以前の戦時倫理の根本的転換を意味した。</p>
+
+  <p>赤十字が示すSI設計の教訓は、「大きな認知変革と精巧な制度設計の組み合わせ」が、権力構造を直接変えずとも深い変革を実現しうる可能性である。ただし、この「権力回避型SI」には固有のリスクもある：中立性の原則が、強大な加害者への批判的関与を妨げるという批判は、今日のICRCにも向けられている。</p>
+</div>
+
+<h2>10　事例：アショーカ王のダルマ政策（前3世紀）</h2>
+
+<div class="case-study">
+  <div class="case-study-title">CASE STUDY 4-C　アショーカ王の社会改革（インド・マウリヤ朝、前268〜前232年頃）</div>
+  <p>インドのマウリヤ朝第三代皇帝アショーカ王（Ashoka Maurya）は、カリンガ戦争（前261年頃）での大量殺戮に深く悔い、仏教に帰依した後、「ダルマ（dharma）の政治」——法・倫理・非暴力に基づく統治——を帝国全土に展開した。アショーカは石柱勅令（Rock Edicts）と岩刻勅令（Pillar Edicts）を通じ、動物の屠殺制限・宗教的寛容・医療施設の整備・囚人の人道的処遇・道路沿いの樹木植栽を命じた。</p>
+
+  <p>アショーカの改革は、前3世紀のインドという文脈での評価が不可欠である。PRRRCスコアリングにおいて最も興味深いのはC次元の分析だ。「統治者の力の源泉は征服と恐怖にある」という支配的な政治的認識（カウティリヤのアルタシャーストラ[Arthashastra]が代表する現実主義的統治論）に対し、アショーカは「ダルマによる統治」という根本的に異なる統治哲学を公式化した（C＝4）。</p>
+
+  <p>R³次元（関係性）での変化も注目される。アショーカの宗教的寛容勅令——「自分の宗派を称え他の宗派を批判するべきではない」——は、当時のインドにおける多宗教・多民族の帝国を、敵対的関係ではなく相互尊重の関係として再定義しようとした（R³＝4）。R²次元では、医療施設（「人と動物のための病院」）と道路整備・樹木植栽という公共財供給が高く評価される（R²＝3）。</p>
+
+  <p>しかしアショーカのSIには重要な限界がある。この改革は帝国の権力構造（P次元）を変えるものではなく、専制君主の善意に完全に依存していた。アショーカの死後、マウリヤ朝の崩壊とともに、石柱勅令に刻まれた改革の多くは実施されなくなった。P次元の低さ（P＝2）が改革の持続性を決定的に制約したという点で、アショーカは「善意の支配者に依存するSIの限界」を示す比類なき事例である。</p>
+
+  <p>それでもアショーカの改革が歴史的意義を持ち続けるのは、C次元での影響が持続したからである。「ダルマによる統治」という思想は、後のインド政治思想、ガンジーの非暴力思想、そして今日のインド憲法の基本原則の一部にまで引き継がれている。制度は滅んでも、認知の変革は文化的記憶として生き残る——これはSI研究が示す、最も示唆に富む発見の一つである。</p>
+</div>
+
+<h2>11　失敗事例：大躍進政策（1958–1962）</h2>
+
+<div class="failure-case">
+  <div class="failure-case-title">FAILURE CASE 4-D　大躍進政策（中国、1958–1962）：トップダウンの逆説</div>
+  <p>毛沢東（Mao Zedong）が1958年に発動した「大躍進（Great Leap Forward）」は、農業集団化・工業化・社会再編を一挙に達成しようとした、20世紀最大規模の社会変革実験の一つである。「15年以内に英国を追い越す」という目標のもと、人民公社の設立、「土法溶鉱炉」による製鉄、集団農業への強制移行が全国で同時に実施された。しかし4年後、大躍進は1500万〜5500万人（推計に幅がある）にのぼる饑死者を出した歴史的大惨事として終焉した。</p>
+
+  <p>大躍進のPRRRCスコアリングは、単純なスコアの低さではなく、特定次元の過剰な集中と他次元の壊滅的低さというアンバランスを示す。P次元：権力変革という観点では、中央指令による農業集団化はP次元の「形式的変革」を示すが、実質はむしろ権力の極端な集中であり（P＝1）、地域の自律的意思決定を完全に奪った。R¹次元：人民公社という新制度は設立されたが、その規則は地域条件を無視した画一的なもので、機能不全に陥った（R¹＝2）。R²次元：食糧の「統一徴購（collective grain procurement）」により、農村から都市・輸出向けに食糧が強制的に移転され、実際には最も脆弱な農村人口から資源を収奪するものだった（R²＝1）。R³次元：人民公社は従来の家族・村落共同体的紐帯を解体し、国家による管理労働に置き換えた。信頼と互恵性に基づく関係性の網の目が破壊された（R³＝1）。C次元：「革命的熱意が物質的制約を超克できる」という政治的意志主義（voluntarism）は、農業の生態学的・技術的現実への認識を歪め、農民の実践知（local knowledge）を「旧来の思想」として排斥した（C＝1）。総合スコア：6/22。</p>
+
+  <p>大躍進の失敗が示すPRRRC的教訓は三つある。第一に「トップダウンの逆説」——変革がより上位の権力に集中するほど、地域の多様な条件への適応力を失い、失敗の規模が拡大する。第二に「フィードバック遮断の危険」——現場の農民が実際の飢餓状況を上司に報告できない「虚偽報告の連鎖（cascade of false reporting）」が惨事を悪化させた。これはMeadowsのレバレッジポイント論でいう「フィードバック・ループの機能不全」の極端な事例である。第三に「認知次元の逆用」——C次元の変革（世界観の転換）が、正しい方向（例：帝国主義への抵抗、階級差別への反発）でも誤った方向（例：農業の生態学的制約の否定）にも作用しうる両義性を示す。</p>
+
+  <p>大躍進と、ほぼ同時期に南アジアで展開されたさまざまなコミュニティ開発プログラム（インドのPanchayati Raj改革など）との比較は示唆的である。中央集権的な「上からの変革」が壊滅的に失敗した一方で、地域の自治と実践知を組み込んだ「下からの変革」の多くは、より緩やかではあっても持続的な変化をもたらした。これはAmartya Senが「飢饉は民主主義体制では起きない（famines do not occur in functioning democracies）」（Sen, 1981）と論じた命題とも深く共鳴する。</p>
+</div>
+
+<h2>12　総合分析：5次元の相互補強と弱点の連鎖</h2>
+
+<p>成功SIと失敗SIの比較分析から浮かび上がる最も重要な知見は、「次元間の相互補強（mutual reinforcement）」という現象である。ある次元でのスコアが高い場合、それが他の次元の変革を促進する「上昇スパイラル」が生まれることがある。逆に、ある次元が著しく低い場合、それが他の次元を引き下げる「下降スパイラル」が起きることもある。</p>
+
+<p>具体的には、R³次元（関係性）が高い場合、多様なアクターの協力によってR²次元（資源）の動員が促進され、それがC次元（認知）の変化を加速するという連鎖が観察されやすい。これは奴隷廃止運動の「橋渡し連合」や、ネパールCFプログラムの「コミュニティ的絆」が示すパターンである。</p>
+
+<p>逆に大躍進のように、P次元の権力集中がR³次元（関係性の破壊）をもたらし、それがC次元（虚偽報告文化の形成）の悪化を招き、さらにR²次元（資源収奪）の悪循環を生む「下降スパイラル」もある。</p>
+
+<p>この分析が示す実践的含意は「弱い次元の補強が優先課題」である。変革設計においては、最強の次元をさらに強化するより、最も脆弱な次元を底上げすることの方が、全体的な変革の持続性に対してより大きな貢献をもたらす可能性が高い。これはMeadowsのシステム思考における「制約要因（limiting factor）」の概念とも整合する。</p>
+
+<div class="chapter-summary">
+  <h3>まとめ</h3>
+  <ul>
+    <li>PRRRCモデルの5次元（権力・制度・資源・関係性・認知）は、社会変革の表層から深層までを重層的に測定する分析装置であり、各次元の配点は変革の持続性への寄与度に基づく。</li>
+    <li>成功SI群（平均8.83/10）と失敗SI群（平均5.00/10）の最大差は関係性次元（R³、0.95差）と資源次元（R²、0.77差）にあり、これらが成功SIの「土台」をなす。</li>
+    <li>奴隷廃止運動は5次元すべてが高水準の「完全型SI」の事例であり、橋渡し連合の形成（R³）と認知的パラダイム転換（C）が変革の核心をなした。</li>
+    <li>赤十字運動は権力構造（P）を変えずに制度（R¹）と認知（C）の革命的変革を実現した「権力回避型SI」の典型だが、中立性の原則が固有のジレンマを生む。</li>
+    <li>アショーカ王の改革は「善意の支配者依存型SI」の限界を示し、P次元の低さが制度の持続性を決定的に制約した一方、C次元の変革のみが後世に引き継がれた。</li>
+    <li>大躍進は「トップダウンの逆説」——権力集中→関係性破壊→フィードバック遮断→資源収奪の「下降スパイラル」——を示す20世紀最大規模のSI失敗事例である。</li>
+    <li>次元間の相互補強・相互破壊という動態的パターンの理解が、SI設計の「弱い次元の補強優先」という実践的含意をもたらす。</li>
+  </ul>
+</div>
+
+<div class="discussion">
+  <h3>ディスカッション問題</h3>
+  <ol>
+    <li>あなたの身近な社会的問題（教育格差・ジェンダー不平等・地域衰退など）について、PRRRCモデルの5次元を使って「どの次元での変革が最も弱いか」を分析してみよ。そして、その弱点を補強するための具体的なアプローチを一つ提案せよ。</li>
+    <li>赤十字の「中立性の原則」は、人道支援の普及に不可欠だったのか、それとも「中立」の名のもとで加害者への批判を回避する結果をもたらしたのか。あなたはどう評価するか。</li>
+    <li>アショーカ王の改革は「制度は滅んでも認知は残る」という命題を示す。今日のSI実践者にとって、この事例はどのような戦略的示唆を持つか。</li>
+    <li>大躍進の失敗要因の一つは「現場からのフィードバックの遮断」だった。今日の企業・政府・NPOにおいて、同様のフィードバック遮断が起きていると思われる事例はあるか。どうすれば防げるか。</li>
+    <li>成功SIのR³次元（関係性）スコアが最も高い差異を示したという発見は、「社会変革は技術や政策より、人と人の関係の変革だ」という命題を支持するか。反論があれば述べよ。</li>
+  </ol>
+</div>
+
+<div class="references">
+  <h3>参考文献</h3>
+  <ul>
+    <li>Centola, D., Becker, J., Brackbill, D., &amp; Baronchelli, A. (2018). Experimental evidence for tipping points in social convention. <em>Science</em>, 360(6393), 1116–1119.</li>
+    <li>Drèze, J., &amp; Sen, A. (1989). <em>Hunger and Public Action</em>. Oxford University Press.</li>
+    <li>Granovetter, M. (1973). The strength of weak ties. <em>American Journal of Sociology</em>, 78(6), 1360–1380.</li>
+    <li>Mahoney, J., &amp; Thelen, K. (Eds.). (2010). <em>Explaining Institutional Change: Ambiguity, Agency, and Power</em>. Cambridge University Press.</li>
+    <li>Meadows, D. H. (1999). <em>Leverage Points: Places to Intervene in a System</em>. The Sustainability Institute.</li>
+    <li>North, D. C., &amp; Wallis, J. J. (2009). Violence and social orders: A conceptual framework for interpreting recorded human history. <em>Cambridge University Press.</em></li>
+    <li>Putnam, R. D. (2000). <em>Bowling Alone: The Collapse and Revival of American Community</em>. Simon &amp; Schuster.</li>
+    <li>Rawls, J. (1971). <em>A Theory of Justice</em>. Harvard University Press.</li>
+    <li>Sen, A. (1981). <em>Poverty and Famines: An Essay on Entitlement and Deprivation</em>. Oxford University Press.</li>
+    <li>Williamson, O. E. (2000). The new institutional economics: Taking stock, looking ahead. <em>Journal of Economic Literature</em>, 38(3), 595–613.</li>
+    <li>Yang, J. (2008). <em>Tombstone: The Great Chinese Famine, 1958–1962</em>. Farrar, Straus and Giroux.（楊継縄著、原田書房2013年日本語訳）</li>
+  </ul>
+</div>
+
+<div class="chapter-footer">
+  <a href="ch03.html">&larr; 前章</a>
+  <a href="../index.html">目次</a>
+  <a href="ch05.html">次章 &rarr;</a>
+</div>
+
+</body>
+</html>

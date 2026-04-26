@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>付録A データベース統計概要 | SI教科書</title>
+<link rel="icon" href="https://esse-sense.com/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/textbook.css">
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="テーマ切替">☽</button>
+
+<nav class="nav-top">
+  <a href="index.html">← 目次へ戻る</a>
+  <span class="nav-chapter">付録A</span>
+  <a href="appendix-b.html">付録B →</a>
+</nav>
+
+<header>
+  <div class="chapter-number">APPENDIX A</div>
+  <h1>データベース統計概要</h1>
+  <p class="chapter-subtitle">1,096件のSI事象データベースの構造と分布</p>
+</header>
+
+<h2>A.1 データベースの概要と構築方針</h2>
+
+<p>本書が依拠するソーシャルイノベーション事象データベース（以下、SIデータベース）は、人類史上約5000年間（紀元前3000年頃〜2024年）にわたる構造的ソーシャルイノベーション（SSI）の事象を体系的に収録・分析したものである。総事象数は1,096件、事象間の関係（波及・再結合・影響）の記録は232件に上る。</p>
+
+<p>データベースの構築にあたっては三つの基本方針を設定した。第一は「地理的多様性の確保」——従来のSI研究が西洋中心になりがちであるという問題に対して、非西洋圏（アフリカ・中東・南アジア・東アジア・東南アジア・ラテンアメリカ・オセアニア）の事例が全体の50%以上を占めることを目標とした。最終的に非西洋圏の事例は全体の53.7%（588件）を占めた。第二は「失敗事例の意図的組み込み」——成功した変革だけでなく、制度化に至らなかった変革・予期せぬ負の帰結をもたらした変革・途中で解体された変革を意図的に収録し、「失敗の生産性」の分析を可能にした。失敗・部分的失敗事例は全体の22.4%（245件）を占める。第三は「一次資料・二次資料の区別」——すべての事象に出典・信頼性評価・不確実性フラグを付与し、データの品質を透明化した。</p>
+
+<h2>A.2 時代区分別の分布</h2>
+
+<p>SIデータベースは事象の発生時期を五つの時代区分に分類している。</p>
+
+<div class="figure">
+  <table>
+    <thead>
+      <tr>
+        <th>時代区分</th>
+        <th>期間</th>
+        <th>件数</th>
+        <th>全体比</th>
+        <th>代表的事象</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>古代期</td>
+        <td>BCE 3000〜BCE 500</td>
+        <td>87件</td>
+        <td>7.9%</td>
+        <td>メソポタミア法典、マンデン憲章の前身、古代インド教育制度</td>
+      </tr>
+      <tr>
+        <td>古典期</td>
+        <td>BCE 500〜CE 500</td>
+        <td>134件</td>
+        <td>12.2%</td>
+        <td>アテナイ民主政、仏教サンガ、漢代科挙の原型</td>
+      </tr>
+      <tr>
+        <td>中世期</td>
+        <td>CE 500〜1500</td>
+        <td>218件</td>
+        <td>19.9%</td>
+        <td>マンデン憲章、イスラーム法学、欧州ギルド制度</td>
+      </tr>
+      <tr>
+        <td>産業期</td>
+        <td>1500〜1945</td>
+        <td>263件</td>
+        <td>24.0%</td>
+        <td>ロッチデール協同組合、グラミン銀行の前身的互助制度、パンカシラ的共同体論</td>
+      </tr>
+      <tr>
+        <td>グローバル期</td>
+        <td>1945〜現在</td>
+        <td>394件</td>
+        <td>35.9%</td>
+        <td>M-PESA、vTaiwan、参加型予算、SDGs、パリ協定</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="figure-caption">表A-1：時代区分別事象分布（筆者作成）</p>
+</div>
+
+<p>グローバル期（1945年〜現在）の394件は全体の35.9%を占め、単独の時代区分として最大のデータ密度を示す。この集中は「記録の可用性バイアス（documentation availability bias）」——近代の事象は歴史的事象より豊富な記録資料が存在する——の影響を一定程度受けていることを認める必要がある。ただし第18章で検討した指数的加速の法則の定量分析は、記録バイアスを補正した後もグローバル期の変革頻度の高さが有意に認められることを示している。</p>
+
+<h2>A.3 文明圏別の分布</h2>
+
+<p>SIデータベースは地理的分類として10の文明圏を設定した。</p>
+
+<div class="figure">
+  <table>
+    <thead>
+      <tr>
+        <th>文明圏</th>
+        <th>件数</th>
+        <th>全体比</th>
+        <th>主要事例</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>東アジア（中国・日本・朝鮮）</td>
+        <td>198件</td>
+        <td>18.1%</td>
+        <td>科挙制度、日本の藩校・寺子屋、台湾vTaiwan</td>
+      </tr>
+      <tr>
+        <td>南アジア（インド・バングラデシュ・パキスタン他）</td>
+        <td>142件</td>
+        <td>13.0%</td>
+        <td>グラミン銀行、ガンディーのサティヤーグラハ、SEWA</td>
+      </tr>
+      <tr>
+        <td>欧州西部</td>
+        <td>187件</td>
+        <td>17.1%</td>
+        <td>ロッチデール協同組合、福祉国家制度、EU統合</td>
+      </tr>
+      <tr>
+        <td>北アメリカ</td>
+        <td>89件</td>
+        <td>8.1%</td>
+        <td>ニューディール、公民権運動、ウィキペディア</td>
+      </tr>
+      <tr>
+        <td>ラテンアメリカ</td>
+        <td>97件</td>
+        <td>8.9%</td>
+        <td>参加型予算、サパティスタ、ボリビア先住民権利運動</td>
+      </tr>
+      <tr>
+        <td>サブサハラ・アフリカ</td>
+        <td>112件</td>
+        <td>10.2%</td>
+        <td>マンデン憲章、M-PESA、南アフリカのTRC</td>
+      </tr>
+      <tr>
+        <td>中東・北アフリカ</td>
+        <td>89件</td>
+        <td>8.1%</td>
+        <td>イスラーム法学改革、アラブの春、ヨルダンの水管理</td>
+      </tr>
+      <tr>
+        <td>東南アジア・太平洋</td>
+        <td>78件</td>
+        <td>7.1%</td>
+        <td>インドネシアのゴトン・ロヨン、フィリピン協同組合、バリ島の水利組合</td>
+      </tr>
+      <tr>
+        <td>中央・東欧・旧ソ連</td>
+        <td>62件</td>
+        <td>5.7%</td>
+        <td>エストニア電子政府、チェコのビロード革命、旧ユーゴ自主管理制度</td>
+      </tr>
+      <tr>
+        <td>中央アジア・北方・他</td>
+        <td>42件</td>
+        <td>3.8%</td>
+        <td>モンゴル遊牧社会の相互扶助制度、カザフスタン草原法典</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="figure-caption">表A-2：文明圏別事象分布（筆者作成）</p>
+</div>
+
+<p>文明圏分布の特徴として注目すべきは、東アジアが18.1%（198件）と最大の比率を占める点である。これは中国の長い制度史（科挙・郷約・保甲制度など）と日本・朝鮮の制度変革の豊富な記録可用性を反映している。サブサハラ・アフリカの10.2%（112件）は、口承伝統に依存した制度記録の少なさを考慮すると相対的に充実しているが、この地域のSI史の体系的研究はなお初期段階にあることを認識すべきである。</p>
+
+<h2>A.4 類型別の分布</h2>
+
+<p>SIデータベースはすべての事象を6つの類型（制度型・運動型・思想型・技術型・経済型・文化型）に分類した。</p>
+
+<div class="figure">
+  <table>
+    <thead>
+      <tr>
+        <th>類型</th>
+        <th>件数</th>
+        <th>全体比</th>
+        <th>定義</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>制度型</td>
+        <td>312件</td>
+        <td>28.5%</td>
+        <td>法・行政・組織・ガバナンスの制度的革新</td>
+      </tr>
+      <tr>
+        <td>運動型</td>
+        <td>198件</td>
+        <td>18.1%</td>
+        <td>集合的行動・抵抗・社会運動による変革</td>
+      </tr>
+      <tr>
+        <td>技術型</td>
+        <td>187件</td>
+        <td>17.1%</td>
+        <td>技術革新が社会関係を変容させる変革</td>
+      </tr>
+      <tr>
+        <td>経済型</td>
+        <td>179件</td>
+        <td>16.3%</td>
+        <td>市場・金融・生産・分配の様式の変革</td>
+      </tr>
+      <tr>
+        <td>思想型</td>
+        <td>134件</td>
+        <td>12.2%</td>
+        <td>規範・価値観・概念枠組みの変革</td>
+      </tr>
+      <tr>
+        <td>文化型</td>
+        <td>86件</td>
+        <td>7.8%</td>
+        <td>芸術・宗教・生活様式を通じた変革</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="figure-caption">表A-3：類型別事象分布（筆者作成）</p>
+</div>
+
+<p>制度型が最多（28.5%）であることは、本書のSSI（構造的ソーシャルイノベーション）定義——「後続する社会的行為の条件を変容させる」——が制度的変革を中心に置いていることを反映している。ただし実際の事象の多くは複数の類型にまたがる複合的性格を持つ。グラミン銀行は経済型かつ制度型、アテナイ民主政は制度型かつ思想型として分類できる。データベースでは「主要類型」と「副次的類型」の二段階分類を採用しており、単純分類が見落とす複合性を記録している。</p>
+
+<h2>A.5 事象間関係の概要</h2>
+
+<p>SIデータベースには232件の「事象間関係（inter-event relations）」が記録されている。事象間関係は三つのカテゴリに分類される。</p>
+
+<p><strong>波及関係（diffusion relations）</strong>は、ある事象が他の地域・時代・文脈での類似した変革の直接的な原因となった関係を指す。ロッチデール協同組合の原則がモンドラゴン協同組合（1956年、スペイン）の制度設計に影響した関係、参加型予算（ブラジル）が世界各地の自治体に波及した関係などが該当する。全232件の事象間関係のうち、波及関係は89件（38.4%）を占める。</p>
+
+<p><strong>再結合関係（recombination relations）</strong>は、複数の異なる変革の論理が合流し、新たな変革を生み出した関係を指す。M-PESAが通信技術（技術型）と金融包摂の課題（経済型）と規制改革（制度型）の三者の再結合として生まれた関係がその典型である。再結合関係は97件（41.8%）を占め、三カテゴリ中最多である。変革の多くが既存要素の新しい組み合わせとして生まれるという観察を支持する。</p>
+
+<p><strong>条件関係（conditioning relations）</strong>は、ある変革が別の変革を直接生み出したわけではないが、後続変革が生まれる社会的・制度的・規範的条件を形成した関係を指す。パリ・コミューン（1871年）の崩壊が、後のマルクス主義・アナキズム運動の思想的条件を形成した関係、Occupy運動の言語が後の進歩的政治ムーブメントの語彙的条件を形成した関係などが該当する。条件関係は46件（19.8%）を占め、「失敗の生産性」を分析するために特に重要なカテゴリである。</p>
+
+<h2>A.6 PRRRCスコアの分布</h2>
+
+<p>本書のPRRRCモデル（Problem-Response-Reach-Recombination-Conditions）により、主要な事象500件にスコアリングが適用された。各次元は0〜5の6段階で評価され、最高スコアは25点（5次元×5点）である。</p>
+
+<div class="figure">
+  <table>
+    <thead>
+      <tr>
+        <th>スコア帯</th>
+        <th>件数</th>
+        <th>比率</th>
+        <th>代表事例</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>20〜25点（最高影響）</td>
+        <td>38件</td>
+        <td>7.6%</td>
+        <td>科挙制度、グラミン銀行、国連人権宣言</td>
+      </tr>
+      <tr>
+        <td>15〜19点（高影響）</td>
+        <td>112件</td>
+        <td>22.4%</td>
+        <td>ロッチデール協同組合、参加型予算、M-PESA</td>
+      </tr>
+      <tr>
+        <td>10〜14点（中影響）</td>
+        <td>187件</td>
+        <td>37.4%</td>
+        <td>トランジション・タウン、エストニア電子政府</td>
+      </tr>
+      <tr>
+        <td>5〜9点（初期・限定的）</td>
+        <td>122件</td>
+        <td>24.4%</td>
+        <td>地域通貨実験、コミュニティ農場多数</td>
+      </tr>
+      <tr>
+        <td>0〜4点（断片的・未検証）</td>
+        <td>41件</td>
+        <td>8.2%</td>
+        <td>記録が断片的な歴史的実験</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="figure-caption">表A-4：PRRRCスコア分布（筆者作成、n=500）</p>
+</div>
+
+<h2>A.7 データベースへのアクセス方法</h2>
+
+<p>本書に付属するSIデータベースには、以下の方法でアクセスできる。</p>
+
+<p><strong>Webインターフェース：</strong>本教科書のウェブサイト（si-textbook.esse-sense.com）にアクセスし、「データベース」タブを選択する。文明圏・時代・類型・PRRRCスコア帯によるフィルタリング、全文検索、事象間関係のネットワーク可視化機能が利用可能である。</p>
+
+<p><strong>SQLiteデータベース：</strong>研究目的での利用には、CSVおよびSQLite形式のデータファイルをダウンロードできる。データ構造の詳細は同サイトのデータ仕様書を参照のこと。</p>
+
+<p><strong>APIアクセス：</strong>プログラムからの利用にはRESTful APIが提供されている。API仕様書はOpenAPI（Swagger）形式で公開されており、教育・研究目的での使用は無償である。</p>
+
+<p><strong>引用方法：</strong>データベースを研究・教育目的で参照する場合は以下の形式で引用してほしい。</p>
+
+<p style="padding: 1rem; background: var(--bg-code); font-family: 'Source Code Pro', monospace; font-size: 0.9rem; border-radius: 4px;">
+  西村勇也（2026）『ソーシャルイノベーション教科書 — 5000年の変革の構造』付録Aデータベース. si-textbook.esse-sense.com
+</p>
+
+<footer class="chapter-footer">
+  <a href="chapters/ch20.html">← 第20章：SIの未来</a>
+  <span>ソーシャルイノベーション教科書</span>
+  <a href="appendix-b.html">付録B：PRRRCスコアリング演習 →</a>
+</footer>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  html.setAttribute('data-theme', current === 'dark' ? '' : 'dark');
+  document.querySelector('.theme-toggle').textContent = current === 'dark' ? '☽' : '☀';
+}
+</script>
+
+</body>
+</html>

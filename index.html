@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ソーシャルイノベーション教科書 — 5000年の変革の構造</title>
+<link rel="icon" href="https://esse-sense.com/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/textbook.css">
+<style>
+  .toc-section {
+    margin-bottom: 3rem;
+  }
+
+  .toc-section h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc-list li {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .toc-list li:last-child {
+    border-bottom: none;
+  }
+
+  .toc-list a {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: color 0.2s;
+  }
+
+  .toc-list a:hover {
+    color: var(--color-accent);
+  }
+
+  .toc-num {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    min-width: 4rem;
+    letter-spacing: 0.05em;
+  }
+
+  .toc-title {
+    font-weight: 500;
+    font-size: 0.95rem;
+    flex: 1;
+  }
+
+  .toc-subtitle {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    font-weight: 300;
+    display: block;
+    margin-top: 0.15rem;
+  }
+
+  .book-header {
+    text-align: center;
+    padding: 4rem 2rem 3rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 3rem;
+  }
+
+  .book-label {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  .book-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
+  }
+
+  .book-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-muted);
+    margin-bottom: 2rem;
+    font-weight: 300;
+  }
+
+  .book-meta {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    line-height: 1.8;
+  }
+
+  .book-meta strong {
+    color: var(--color-text);
+  }
+
+  .book-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .intro-text {
+    max-width: 680px;
+    margin: 0 auto 3rem;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--color-text);
+  }
+
+  .part-badge {
+    display: inline-block;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.65rem;
+    background: var(--color-accent);
+    color: white;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    margin-right: 0.5rem;
+    letter-spacing: 0.05em;
+    vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="テーマ切替">☽</button>
+
+<div class="book-header">
+  <p class="book-label">Textbook on Social Innovation</p>
+  <h1 class="book-title">ソーシャルイノベーション教科書</h1>
+  <p class="book-subtitle">5000年の変革の構造</p>
+
+  <div class="book-stats">
+    <div class="stat-item">
+      <span class="stat-num">20</span>
+      <span class="stat-label">章</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">1,096</span>
+      <span class="stat-label">SI事象</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">10</span>
+      <span class="stat-label">文明圏</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">5,000+</span>
+      <span class="stat-label">年の射程</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">54%</span>
+      <span class="stat-label">非西洋圏事例</span>
+    </div>
+  </div>
+
+  <div class="book-meta">
+    <strong>著者：</strong>西村勇也（Yuya Nishimura）<br>
+    <strong>発行：</strong>2026年 | <strong>版：</strong>初版<br>
+    <strong>対象：</strong>社会変革に関心を持つ学生・実践者・研究者
+  </div>
+</div>
+
+<div class="intro-text">
+  <p>本書は、人類史5000年のソーシャルイノベーション（SI）を比較分析し、変革の構造的法則を明らかにしようとする試みである。グラミン銀行やウィキペディアといった現代的事例のみならず、古代メソポタミアの法典、西アフリカのマンデン憲章、中国の科挙制度、インドのガンジー運動まで、世界各地・各時代の変革を1,096件のデータとして収録・分析した。5000年の視野が私たちに問いかけるのは「社会は、どのようにして自らを変えてきたのか」——そして「あなた自身のSIは何か」である。</p>
+</div>
+
+<main>
+
+  <div class="toc-section">
+    <h2>Part I — 基礎理論</h2>
+    <ul class="toc-list">
+      <li>
+        <a href="chapters/ch01.html">
+          <span class="toc-num">CH.01</span>
+          <span>
+            <span class="toc-title">ソーシャルイノベーションとは何か</span>
+            <span class="toc-subtitle">5000年の社会変革を読み解くための出発点 — グラミン銀行・アテナイ民主政・マンデン憲章</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="chapters/ch02.html">
+          <span class="toc-num">CH.02</span>
+          <span>
+            <span class="toc-title">測定の挑戦 — PRRRCモデルとは何か</span>
+            <span class="toc-subtitle">変革をどう評価するか — 問題・応答・波及・再結合・条件変容の5次元</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="chapters/ch03.html">
+          <span class="toc-num">CH.03</span>
+          <span>
+            <span class="toc-title">データベースの構造と方法論</span>
+            <span class="toc-subtitle">1,096件をどう収集・分類・分析したか — 方法論的透明性の実践</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="toc-section">
+    <h2>Part II — 古代期（BCE 3000〜BCE 500）</h2>
+    <ul class="toc-list">
+      <li>
+        <a href="chapters/ch04.html">
+          <span class="toc-num">CH.04</span>
+          <span>
+            <span class="toc-title">文明の誕生とSI — メソポタミア・エジプト・インダス</span>
+            <span class="toc-subtitle">都市・文字・法の発明が開いた変革の可能性</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="chapters/ch05.html">
+          <span class="toc-num">CH.05</span>
+          <span>
+            <span class="toc-title">中国・黄河文明のSI — 礼・仁・制度の起源</span>
+            <span class="toc-subtitle">周王朝の封建制から孔子の社会倫理まで</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="toc-section">
+    <h2>Part III — 古典期（BCE 500〜CE 500）</h2>
+    <ul class="toc-list">
+      <li>
+        <a href="chapters/ch06.html">
+          <span class="toc-num">CH.06</span>
+          <span>
+            <span class="toc-title">民主政・帝国・宗教 — 変革の三つの論理</span>
+            <span class="toc-subtitle">アテナイ民主政・アショーカ王の仏教政治・ローマ法</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="chapters/ch07.html">
+          <span class="toc-num">CH.07</span>
+          <span>
+            <span class="toc-title">シルクロードとSIの伝播</span>
+            <span class="toc-subtitle">知識・技術・宗教が交差する変革の回廊</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="toc-section">
+    <h2>Part IV — 中世期（CE 500〜1500）</h2>
+    <ul class="toc-list">
+      <li>
+        <a href="chapters/ch08.html">
+          <span class="toc-num">CH.08</span>
+          <span>
+            <span class="toc-title">イスラーム世界のSI — ワクフ・マドラサ・医療制度</span>
+            <span class="toc-subtitle">9〜13世紀、知識と福祉の制度革命</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="chapters/ch09.html">
+          <span class="toc-num">CH.09</span>
+          <span>
+            <span class="toc-title">マリ帝国とアフリカのSI</span>
+            <span class="toc-subtitle">マンデン憲章・グリオ・口承による制度形成</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="chapters/ch10.html">
+          <span class="toc-num">CH.10</span>
+          <span>
+            <span class="toc-title">東アジアの変革 — 科挙・宋学・禅</span>
+            <span class="toc-subtitle">中国・日本・朝鮮の制度革新の論理</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="toc-section">
+    <h2>Part V — 産業期（1500〜1945）</h2>
+    <ul class="toc-list">
+      <li>
+        <a href="chapters/ch11.html">
+          <span class="toc-num">CH.11</span>
+          <span>
+            <span class="toc-title">啓蒙・革命・公共圏</span>
+            <span class="toc-subtitle">フランス革命・ハイチ革命・アメリカ独立宣言の比較分析</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="chapters/ch12.html">
+          <span class="toc-num">CH.12</span>
+          <span>
+            <span class="toc-title">産業化と社会的応答 — 協同組合・労働運動・福祉国家の誕生</span>
+            <span class="toc-subtitle">ロッチデール協同組合から福祉国家制度化まで</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="chapters/ch13.html">
+          <span class="toc-num">CH.13</span>
+          <span>
+            <span class="toc-title">脱植民地化のSI — ガンジー・汎アフリカ主義・マオ</span>
+            <span class="toc-subtitle">帝国主義への応答として生まれた変革の論理</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="chapters/ch14.html">
+          <span class="toc-num">CH.14</span>
+          <span>
+            <span class="toc-title">ラテンアメリカのSI — 解放の神学・フレイレ・コミュニティ運動</span>
+            <span class="toc-subtitle">抑圧された者の教育学と解放の実践</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="toc-section">
+    <h2>Part VI — グローバル期（1945〜現在）前半</h2>
+    <ul class="toc-list">
+      <li>
+        <a href="chapters/ch15.html">
+          <span class="toc-num">CH.15</span>
+          <span>
+            <span class="toc-title">人権・国際制度・国連体制</span>
+            <span class="toc-subtitle">世界人権宣言（1948）から国連システムの形成まで</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="chapters/ch16.html">
+          <span class="toc-num">CH.16</span>
+          <span>
+            <span class="toc-title">公民権運動と社会運動の世界的連鎖</span>
+            <span class="toc-subtitle">1960〜70年代、変革の連鎖と制度化の条件</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="chapters/ch17.html">
+          <span class="toc-num">CH.17</span>
+          <span>
+            <span class="toc-title">マイクロファイナンス・社会的企業・新しい経済学</span>
+            <span class="toc-subtitle">グラミン銀行・SEWA・コミュニティ通貨の比較</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="toc-section">
+    <h2>Part VII — 歴史構造の分析</h2>
+    <ul class="toc-list">
+      <li>
+        <a href="chapters/ch18.html">
+          <span class="toc-num">CH.18</span>
+          <span>
+            <span class="toc-title">10のシステム法則 — 5000年のパターン</span>
+            <span class="toc-subtitle">危機先行性・周縁拡散・指数的加速など、変革を貫く構造的規則性</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="chapters/ch19.html">
+          <span class="toc-num">CH.19</span>
+          <span>
+            <span class="toc-title">現代のSI実践 — デジタル・グローバル・ローカル</span>
+            <span class="toc-subtitle">M-PESA・vTaiwan・参加型予算・Occupy運動の比較分析</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="chapters/ch20.html">
+          <span class="toc-num">CH.20</span>
+          <span>
+            <span class="toc-title">SIの未来 — 歴史構造から何を学ぶか</span>
+            <span class="toc-subtitle">AI時代のSI・未来学との接続・あなた自身のSIは何か</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="toc-section">
+    <h2>付録</h2>
+    <ul class="toc-list">
+      <li>
+        <a href="appendix-a.html">
+          <span class="toc-num">APP.A</span>
+          <span>
+            <span class="toc-title">データベース統計概要</span>
+            <span class="toc-subtitle">1,096件の事象の分布統計 — 時代・文明圏・類型・PRRRCスコア分布・アクセス方法</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="appendix-b.html">
+          <span class="toc-num">APP.B</span>
+          <span>
+            <span class="toc-title">PRRRCスコアリング演習シート</span>
+            <span class="toc-subtitle">5次元の評価基準・拡張スコア・練習問題3題</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="appendix-c.html">
+          <span class="toc-num">APP.C</span>
+          <span>
+            <span class="toc-title">用語集（70語）</span>
+            <span class="toc-subtitle">SI分野の主要術語 — 英日併記・アルファベット順</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</main>
+
+<footer class="chapter-footer" style="margin-top: 4rem;">
+  <span>ソーシャルイノベーション教科書 © 2026 西村勇也</span>
+  <span>esse-sense.com</span>
+</footer>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  html.setAttribute('data-theme', current === 'dark' ? '' : 'dark');
+  document.querySelector('.theme-toggle').textContent = current === 'dark' ? '☽' : '☀';
+}
+</script>
+
+</body>
+</html>

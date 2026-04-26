@@ -361,10 +361,36 @@ blockquote {
 .chapter-footer a { color: var(--accent); text-decoration: none; }
 
 /* Responsive */
-@media (max-width: 600px) {
-  body { padding: 20px 16px 60px; font-size: 15px; }
-  h1 { font-size: 1.4rem; }
-  .case-study, .failure-case { padding: 16px 20px; }
-  .prrrc-table { font-size: 0.74rem; }
+@media (max-width: 768px) {
+  body { padding: 24px 16px 60px; font-size: 15px; line-height: 1.9; }
+  h1 { font-size: 1.3rem; line-height: 1.4; }
+  h2 { font-size: 1.1rem; margin-top: 36px; }
+  h3 { font-size: 0.92rem; }
+  .chapter-number { font-size: 0.75rem; }
+  .chapter-subtitle { font-size: 0.92rem; }
+  .opening-question { padding: 16px 18px; font-size: 0.95rem; }
+  .case-study, .failure-case { padding: 16px 18px; margin: 24px 0; }
+  .case-study-title, .failure-case-title { font-size: 0.78rem; }
+  .prrrc-table { font-size: 0.72rem; }
+  .prrrc-table th, .prrrc-table td { padding: 6px 8px; }
+  table { font-size: 0.78rem; }
+  th, td { padding: 8px 10px; }
+  .nav-top { font-size: 0.72rem; flex-wrap: wrap; gap: 8px; }
+  .chapter-footer { flex-direction: column; gap: 8px; text-align: center; }
+  .chapter-summary { padding: 16px 18px; }
+  .chapter-summary li { font-size: 0.85rem; }
+  .discussion li { font-size: 0.85rem; }
+  .references li { font-size: 0.75rem; }
+  blockquote { padding: 10px 16px; margin: 16px 0; }
+  .timeline { padding-left: 18px; }
+  .tl-item::before { left: -23px; width: 8px; height: 8px; }
+  p { text-align: left; }
+}
+@media (max-width: 400px) {
+  body { padding: 16px 12px 48px; font-size: 14px; }
+  h1 { font-size: 1.15rem; }
+  .opening-question { padding: 12px 14px; font-size: 0.88rem; }
+  .case-study, .failure-case { padding: 12px 14px; }
+  .nav-top a { font-size: 0.68rem; }
 }
 </style>
